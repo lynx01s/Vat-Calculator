@@ -1,6 +1,6 @@
 {
   "name": "vat-price-calculator",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,7 +12,8 @@
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "framer-motion": "^11.3.19"
+    "framer-motion": "^11.3.19",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/node": "^20",

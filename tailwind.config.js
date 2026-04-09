@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,18 +9,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["'Syne'", "sans-serif"],
-        body: ["'DM Sans'", "sans-serif"],
-        mono: ["'DM Mono'", "monospace"],
+        sans: ["'IBM Plex Sans'", "sans-serif"],
+        mono: ["'IBM Plex Mono'", "monospace"],
       },
       colors: {
-        ink: "#0D0D0F",
-        surface: "#F5F4F0",
-        card: "#FFFFFF",
-        accent: "#C8F135",
-        muted: "#8A8A8E",
-        border: "#E4E3DF",
-        vat: "#FF6B35",
+        ink:     { DEFAULT: "#111118", light: "#F7F7F9" },
+        surface: { DEFAULT: "#F7F7F9", dark: "#111118" },
+        card:    { DEFAULT: "#FFFFFF", dark: "#1C1C26" },
+        border:  { DEFAULT: "#E5E5EA", dark: "#2A2A38" },
+        muted:   { DEFAULT: "#8E8EA0", dark: "#55556A" },
+        accent:  "#6C63FF",
+        accentLt:"#EEEDff",
+        vat:     "#FF6B35",
+        ok:      "#22C55E",
       },
     },
   },

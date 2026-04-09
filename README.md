@@ -1,27 +1,26 @@
-# VAT Price Calculator — THB ฿
+# VAT Price Calculator v2 — THB ฿
 
-A modern Next.js app for breaking down prices into **before VAT**, **VAT amount**, and **total incl. VAT** using a divisor of **1.2084**.
-
-## Features
-
-- Pre-loaded price range: **฿15,000 – ฿18,000** (in ฿500 steps)
-- Add custom amounts manually at any time
-- Summary cards for totals
-- Animated row additions / deletions
-- Fully responsive
+A modern Next.js app for breaking down prices with VAT using divisor **1.2084**.
 
 ## Formula
-
 ```
-Price before VAT = Price incl. VAT ÷ 1.2084
-VAT amount       = Price incl. VAT − Price before VAT
+Before VAT = Price incl. VAT ÷ 1.2084
+VAT amount = Price incl. VAT − Before VAT
 ```
 
----
+## Features
+- Pre-loaded ฿15,000–฿18,000 range (฿500 steps)
+- Add custom amounts with optional labels
+- **Inline edit** any row's price or label
+- **Copy** individual row or all rows (tab-separated)
+- **Export CSV** and **Excel (.xlsx)**
+- **Sort** by any column (click header)
+- **Filter/search** rows live
+- **Dark mode** toggle
+- Toast notifications for every action
+- Keyboard shortcut: `Enter` to add row
 
-## Deploy to Vercel via GitHub
-
-### Step 1 — Push to GitHub
+## Deploy to Vercel
 
 ```bash
 git init
@@ -31,29 +30,18 @@ git remote add origin https://github.com/YOUR_USERNAME/vat-calculator.git
 git push -u origin main
 ```
 
-### Step 2 — Import on Vercel
+Then go to [vercel.com/new](https://vercel.com/new), import your repo, and click **Deploy**.
 
-1. Go to [vercel.com/new](https://vercel.com/new)
-2. Click **Import** next to your GitHub repo
-3. Leave all settings as-is (Vercel auto-detects Next.js)
-4. Click **Deploy**
-
-That's it — Vercel handles everything automatically.
-
----
-
-## Local Development
+## Local Dev
 
 ```bash
 npm install
 npm run dev
-# Open http://localhost:3000
+# http://localhost:3000
 ```
 
-## Tech Stack
-
-- **Next.js 14** (App Router)
-- **TypeScript**
-- **Tailwind CSS**
-- **Framer Motion** (animations)
-- **Google Fonts** — Syne + DM Sans + DM Mono
+## Stack
+- Next.js 14 (App Router) · TypeScript
+- Tailwind CSS · Framer Motion
+- SheetJS (xlsx) for Excel export
+- IBM Plex Sans + IBM Plex Mono (Google Fonts)
