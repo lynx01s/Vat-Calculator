@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-family: 'IBM Plex Sans', sans-serif; }
+
+body {
+  background: #F7F7F9;
+  color: #111118;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s, color 0.25s;
+}
+
+html.dark body {
+  background: #111118;
+  color: #F7F7F9;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CCCCDA; border-radius: 99px; }
+html.dark ::-webkit-scrollbar-thumb { background: #2A2A38; }
+
+/* toast */
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.toast { animation: slideUp 0.22s ease; }
+
+/* row flash */
+@keyframes rowFlash {
+  0%   { background: #EEEDff; }
+  100% { background: transparent; }
+}
+.row-flash { animation: rowFlash 1.4s ease forwards; }
+html.dark .row-flash { animation: rowFlashDark 1.4s ease forwards; }
+@keyframes rowFlashDark {
+  0%   { background: #2A2845; }
+  100% { background: transparent; }
+}
