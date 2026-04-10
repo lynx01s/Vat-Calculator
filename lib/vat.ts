@@ -1,4 +1,4 @@
-export const VAT_DIVISOR = 1.2084;
+export const DEFAULT_VAT_RATE = 20.84; // percent
 
 export interface PriceRow {
   id: string;
@@ -7,17 +7,22 @@ export interface PriceRow {
   netPrice: number;
   vatAmount: number;
   isCustom: boolean;
+  pinned: boolean;
 }
 
+/** vatRate is a percentage, e.g. 20.84 means 20.84% */
 export function calcRow(
   grossPrice: number,
   label: string,
   id: string,
-  isCustom = false
+  vatRate: number,
+  isCustom = false,
+  pinned = false
 ): PriceRow {
-  const netPrice = grossPrice / VAT_DIVISOR;
+  const divisor = 1 + vatRate / 100;
+  const netPrice = grossPrice / divisor;
   const vatAmount = grossPrice - netPrice;
-  return { id, label, grossPrice, netPrice, vatAmount, isCustom };
+  return { id, label, grossPrice, netPrice, vatAmount, isCustom, pinned };
 }
 
 export function formatTHB(value: number, decimals = 2): string {
@@ -27,12 +32,10 @@ export function formatTHB(value: number, decimals = 2): string {
   }).format(value);
 }
 
-export function generateDefaultRows(): PriceRow[] {
+export function generateDefaultRows(vatRate: number, step = 500): PriceRow[] {
   const rows: PriceRow[] = [];
-  for (let price = 15000; price <= 18000; price += 500) {
-    rows.push(
-      calcRow(price, `฿${formatTHB(price, 0)}`, `preset-${price}`, false)
-    );
+  for (let price = 15000; price <= 18000; price += step) {
+    rows.push(calcRow(price, `฿${formatTHB(price, 0)}`, `preset-${price}-${step}`, vatRate, false));
   }
   return rows;
 }
