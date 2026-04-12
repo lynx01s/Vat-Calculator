@@ -1,3 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
-export default nextConfig;
+/node_modules
+/.next/
+/out/
+/build
+.DS_Store
+.env*.local
+.vercel
+*.tsbuildinfo
+next-env.d.ts
